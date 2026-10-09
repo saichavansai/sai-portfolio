@@ -19,7 +19,7 @@ export const profile = {
   name: 'Sai Shital Chavan',
   initials: 'SC',
   title: 'MERN Stack Developer | Website Developer',
-  headline: 'Building Modern Web Experiences with Code & Creativity.',
+  headline: 'Hi, I am Sai, I build modern websites.',
   intro:
     "I'm Sai Shital Chavan, a passionate MERN Stack Developer who loves turning ideas into responsive, scalable, and user-focused web applications. I enjoy coding, solving problems, and continuously learning new technologies.",
   email: 'chavansai923@gmail.com',
