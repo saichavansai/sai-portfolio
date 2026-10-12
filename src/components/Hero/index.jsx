@@ -3,35 +3,30 @@ import { FiArrowDown, FiMail } from 'react-icons/fi';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
 import { profile, heroBadges } from '../../data/portfolioData';
-
+ 
 // Auto-detect src/assets/images/profile.(jpg|jpeg|png|webp). Empty object if none exists.
 const found = import.meta.glob('../../assets/images/profile.{jpg,jpeg,png,webp}', {
   eager: true,
   import: 'default',
 });
 const profileImage = Object.values(found)[0] || null;
-
-const symbols = ['{ }', '</>', '[ ]', '=>', '&&', '( )'];
-
+ 
 const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-
+ 
 export default function Hero() {
   const socials = Object.values(profile.socials).filter((s) => s.url);
-
+ 
   return (
     <section id="home" className="hero" aria-label="Introduction">
       <div className="hero-bg" aria-hidden="true">
         <div className="grid-bg" />
         <div className="orb orb-blue" />
         <div className="orb orb-violet" />
-        {symbols.map((s, i) => (
-          <span key={s} className={`float-symbol fs-${i}`}>{s}</span>
-        ))}
       </div>
-
+ 
       <div className="container hero-inner">
         <motion.div
           className="hero-copy"
@@ -65,7 +60,7 @@ export default function Hero() {
             </motion.ul>
           )}
         </motion.div>
-
+ 
         <motion.div
           className="hero-visual"
           initial={{ opacity: 0, scale: 0.92 }}
@@ -85,7 +80,7 @@ export default function Hero() {
               )}
             </div>
           </div>
-
+ 
           <div className="terminal" aria-hidden="true">
             <div className="terminal-bar"><i /><i /><i /><span className="mono">developer.js</span></div>
             <pre className="mono">
@@ -101,3 +96,7 @@ export default function Hero() {
     </section>
   );
 }
+ 
+
+
+

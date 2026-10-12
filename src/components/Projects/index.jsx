@@ -33,7 +33,6 @@ export default function Projects() {
              
               {p.codeUrl && <Button href={p.codeUrl} variant="ghost" icon={FiCode}>View Code</Button>}
             </div>
-            {!p.liveUrl && <p className="hint mono">Live URL not provided yet - add it in portfolioData.js.</p>}
           </div>
         </Reveal>
       ))}
