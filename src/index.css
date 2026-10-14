@@ -35,8 +35,8 @@ img { max-width: 100%; display: block; }
 .skip-link:focus { top: 1rem; }
 
 /* ---------- Sections ---------- */
-.section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; scroll-margin-top: var(--nav-h); }
-.section-head { margin-bottom: 3rem; }
+.section { padding: clamp(2rem, 4vw, 3rem) 0; scroll-margin-top: var(--nav-h); }
+.section-head { margin-bottom: 2rem; }
 .section-title { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
 .bracket { color: var(--violet); font-family: var(--mono); font-weight: 400; }
 .section-sub { color: var(--muted); margin-top: .6rem; max-width: 52ch; }
@@ -80,9 +80,34 @@ img { max-width: 100%; display: block; }
 .mobile-menu a { display: block; padding: 1rem .5rem; font-size: 1.35rem; font-weight: 700; border-bottom: 1px solid var(--border); min-height: 56px; }
 .mobile-menu a.active { color: var(--blue); }
 
-/* ---------- Hero ---------- */
-.hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--nav-h) + 2rem) 0 4rem; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+/* ---------- Hero & Human-Made Minimal Background Styling ---------- */
+.hero { 
+  position: relative; 
+  min-height: auto; 
+  display: flex; 
+  align-items: center; 
+  padding: calc(var(--nav-h) + 1.5rem) 0 2.5rem; 
+  overflow: hidden; 
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.06) 0%, transparent 45%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(7, 8, 13, 0.65) 100%);
+  z-index: 0;
+}
+
+.hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; display: none; }
 .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 70%); opacity: .55; }
 .orb { position: absolute; width: 480px; height: 480px; border-radius: 50%; filter: blur(110px); opacity: .28; animation: drift 16s ease-in-out infinite alternate; }
 .orb-blue { background: var(--blue); top: -120px; left: -120px; }
@@ -108,14 +133,12 @@ img { max-width: 100%; display: block; }
 .social-row a:hover { border-color: var(--violet); transform: translateY(-2px); }
 
 .hero-visual { display: grid; gap: 1.5rem; justify-items: center; }
-/* Wrapper: sets the size and lets children be positioned inside it */
 .avatar-wrap {
   position: relative;
   width: min(300px, 72vw);
   aspect-ratio: 1;
 }
 
-/* Glow: a blurred gradient box behind the photo (static, no animation) */
 .avatar-glow {
   position: absolute;
   inset: -4px;
@@ -125,7 +148,6 @@ img { max-width: 100%; display: block; }
   opacity: 0.6;
 }
 
-/* Frame: the photo container with a thin gradient border */
 .avatar {
   position: relative;
   width: 100%;
@@ -135,7 +157,6 @@ img { max-width: 100%; display: block; }
   background: var(--grad);
 }
 
-/* Photo / placeholder: fills the frame, slightly smaller radius to match */
 .avatar img,
 .avatar-placeholder {
   width: 100%;
@@ -280,3 +301,4 @@ img { max-width: 100%; display: block; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
 }
+```[cite: 1, 4]
